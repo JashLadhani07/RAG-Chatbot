@@ -1,0 +1,158 @@
+#init
+ERROR:fastapi:Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
+INFO:root:Session ID: None, User Query: Hi, Model: gemini-2.5-pro
+INFO:root:Session ID: None, User Query: Hi, Model: gemini-2.5-pro
+INFO:root:Session ID: None, User Query: What is Goldman Sachs, Model: gemini-2.5-pro
+INFO:root:Session ID: None, User Query: What is JP Morgan company, Model: gemini-2.5-pro
+INFO:root:Session ID: 2fb6dd20-8e15-4125-98bb-881cbd4f6082, AI Response: Based on the context provided, JPMorgan Chase & Co. is a leading global financial services firm with assets exceeding $3.9 trillion. The company serves millions of customers in the United States and many of the world's most prominent corporate, institutional, and government clients.
+INFO:root:Session ID: 2fb6dd20-8e15-4125-98bb-881cbd4f6082, User Query: How much assets does it have?, Model: gemini-2.5-pro
+INFO:root:Session ID: 2fb6dd20-8e15-4125-98bb-881cbd4f6082, AI Response: According to the context provided, JPMorgan Chase & Co. has assets **exceeding $3.9 trillion**.
+INFO:root:Session ID: 2fb6dd20-8e15-4125-98bb-881cbd4f6082, User Query: What is Goldman Sachs?, Model: gemini-2.5-pro
+WARNING:langchain_google_genai.chat_models:Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 2
+Please retry in 12.585733044s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 2
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 12
+}
+].
+WARNING:langchain_google_genai.chat_models:Retrying langchain_google_genai.chat_models._chat_with_retry.<locals>._chat_with_retry in 2.0 seconds as it raised ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits.
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 2
+Please retry in 6.951237456s. [violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.5-pro"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+  quota_value: 2
+}
+, links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, retry_delay {
+  seconds: 6
+}
+].
+INFO:root:Session ID: None, User Query: JP Morgan, Model: gemini-2.5-pro
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, AI Response: Based on the provided text, JPMorgan Chase & Co. is a leading global financial services firm with assets exceeding $3.9 trillion. The company serves millions of customers in the United States, as well as many of the world's most prominent corporate, institutional, and government clients.
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, User Query: Goldman Sachs, Model: gemini-2.5-pro
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, AI Response: Based on the provided text, The Goldman Sachs Group, Inc. is a leading global investment banking, securities, and investment management firm with approximately $1.6 trillion in total assets.
+
+Key details include:
+*   **Founded:** 1869
+*   **Employees:** Approximately 48,000 worldwide
+*   **Operations:** Active in over 35 countries
+*   **Client Base:** Serves corporations, financial institutions, governments, and individuals.
+*   **Business Segments:**
+    *   **Global Banking & Markets (GBM):** Facilitates client transactions and makes markets in fixed income, equity, currency, and commodities.
+    *   **Asset & Wealth Management (AWM):** Manages approximately $2.6 trillion in assets under supervision for institutions and individuals.
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, User Query: Where is it's HQ?, Model: gemini-2.5-pro
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, AI Response: Based on the text provided, the location of Goldman Sachs' headquarters is not mentioned. The document only states that the company "operates in over 35 countries."
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, User Query: What value of assets does JP Morgan have?, Model: gemini-2.5-pro
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, AI Response: Based on the provided context, JPMorgan Chase & Co. has assets exceeding **$3.9 trillion**.
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, User Query: How many customers in US does it have?, Model: gemini-2.5-pro
+INFO:root:Session ID: 7f78b5b4-1599-48ca-aa12-29580f9b6308, AI Response: Based on the provided text, JPMorgan Chase & Co. serves **"millions of customers in the United States."** The context does not specify a more exact number.
+INFO:root:Session ID: None, User Query: What is JP Morgan?, Model: gemini-2.5-pro
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, AI Response: Based on the provided document, JP Morgan Chase & Co. is described as:
+
+*   The world's fifth-largest bank by total assets.
+*   One of America's most prominent and well-positioned financial institutions.
+*   A company headquartered in New York City, led by Chairman and CEO Jamie Dimon.
+*   A publicly traded company on the NYSE with the ticker symbol JPM.
+*   A large global employer with approximately 300,000 employees and over $4 trillion in assets as of 2024.
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, User Query: Where is it's HQ?, Model: gemini-2.5-pro
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, AI Response: Based on the provided report, JP Morgan Chase & Co.'s headquarters is in **New York City, New York, USA**.
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, User Query: What do you Know about Goldman Sachs?, Model: gemini-2.5-pro
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, AI Response: Based on the provided "Comprehensive Business Report 2025," here is what is known about Goldman Sachs:
+
+*   **Company Identity:** It is one of the world's premier investment banking, securities, and investment management firms.
+*   **Performance (as of Sept. 2025):** The firm shows exceptional performance with strong earnings. Its first-quarter earnings per share were $14.12, and it had an annualized return on common equity of 16.9%.
+*   **Headquarters:** New York City, New York, USA.
+*   **Leadership:** David Solomon is the Chairman and CEO.
+*   **Founded:** 1869.
+*   **Stock Information:** It is traded on the NYSE with the ticker symbol GS.
+*   **Employees:** It has approximately 50,000 employees globally.
+*   **Core Values:** The company operates on four principles, including Partnership, Client Service, and Integrity.
+*   **Competitive Advantages:**
+    *   Expertise in investment banking and trading.
+    *   Strong, long-standing client relationships.
+    *   Advanced technology and risk management.
+    *   A diversified business model.
+    *   An exceptional talent base and culture.
+*   **Initiatives:** The company focuses on supplier diversity, employee resource groups, mentoring, and leadership development for underrepresented groups.
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, User Query: Tell me some things about it that I should know, Model: gemini-2.5-pro
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, AI Response: Based on the provided document, here are some of the most important things you should know about Goldman Sachs:
+
+*   **Elite Status:** It is considered one of the world's premier and most exceptional financial institutions, specializing in investment banking, securities, and investment management.
+
+*   **Strong Financial Performer:** As of the first quarter of 2025, the firm is performing very well, with strong earnings per share ($14.12) and a high return on equity (16.9%), indicating it is highly profitable and effective at navigating complex markets.
+
+*   **Key Strengths (Competitive Advantages):**
+    *   It has top-tier expertise in investment banking and trading.
+    *   Its business is built on strong, long-term client relationships.
+    *   It leverages advanced technology and robust risk management.
+    *   It has an exceptional workforce and a strong company culture.
+
+*   **Long-Established and Influential:** Founded in 1869 and headquartered in New York City, it is a long-standing pillar of the financial industry.
+
+*   **Value-Driven Culture:** The company operates on core principles of Partnership, Client Service, and Integrity, emphasizing a collaborative approach and high ethical standards.
+
+*   **Focus on People and Diversity:** Goldman Sachs actively invests in initiatives like supplier diversity, employee resource groups, and leadership development for underrepresented groups.
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, User Query: Is amazon the most valued company in the world?, Model: gemini-2.5-pro
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, AI Response: Based on the provided "Amazon.com, Inc. - Comprehensive Business Report 2025," the document does not state whether Amazon is the most valued company in the world.
+
+It describes Amazon as "**one of the world's largest and most influential companies**," which indicates it is in the top tier, but it does not provide a specific ranking or a market capitalization figure to confirm if it is number one.
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, User Query: Whose Headquarters is in New York City? , Model: gemini-2.5-pro
+INFO:root:Session ID: 95b950f5-f64a-4d56-9655-828988b5446b, AI Response: Based on the documents provided, the following companies have their headquarters in New York City:
+
+*   **JP Morgan Chase & Co.**
+*   **The Goldman Sachs Group, Inc.**
+INFO:root:Session ID: None, User Query: What is JP Morgan?, Model: gemini-2.5-pro
+INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, AI Response: Based on the provided text, JP Morgan Chase & Co. is:
+
+*   The world's fifth-largest bank by total assets.
+*   One of America's most prominent and well-positioned financial institutions.
+*   A company headquartered in New York City, led by Chairman and CEO Jamie Dimon.
+*   A publicly traded company on the NYSE with the ticker symbol JPM.
+*   A large global employer with approximately 300,000 employees and over $4 trillion in assets.
+
+It operates through four main business segments: Consumer & Community Banking, Corporate & Investment Bank, Commercial Banking, and Asset & Wealth Management.
+INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, User Query: What does Goldman Sachs do?, Model: gemini-2.5-pro
+INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, AI Response: Based on the provided text, Goldman Sachs is one of the world's premier **investment banking, securities, and investment management firms**.
+
+The report also highlights that the company has:
+*   Unparalleled expertise in **investment banking and trading**.
+*   A diversified business model with multiple revenue streams.
+*   Its headquarters in New York City, with David Solomon as the Chairman and CEO.
+*   Approximately 50,000 employees globally.
+INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, User Query: Is amazon the most values company in the world?, Model: gemini-2.5-pro
+INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, AI Response: Based on the provided text, Amazon is described as "**one of the world's most valuable companies**."
+
+The text does not state whether it is *the* most valuable company in the world, only that it is among the most valuable.
+INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, User Query: Which company's HQ is in NYC?, Model: gemini-2.5-pro
+INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, AI Response: Based on the provided text, both **JP Morgan Chase & Co.** and **The Goldman Sachs Group, Inc.** have their headquarters in New York City, New York.
