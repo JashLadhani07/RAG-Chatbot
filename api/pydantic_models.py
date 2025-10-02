@@ -4,7 +4,7 @@ from datetime import datetime
 
 class ModelName(str, Enum):
     GEMINI_25_PRO = "gemini-2.5-pro"
-    GEMINI_25_FLASH = "gemimi-2.5-flash"
+    GEMINI_25_FLASH = "gemini-2.5-flash"
 
 class QueryInput(BaseModel):
     question: str

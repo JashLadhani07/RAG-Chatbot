@@ -1,9 +1,12 @@
 import streamlit as st
 from api_utils import upload_document, list_documents, delete_document
+import os
 
+# Use API_URL env var (set it in Streamlit Cloud). Default to localhost for local dev.
+API_URL = os.getenv("API_URL", "http://localhost:8000")
 def display_sidebar():
     # Sidebar: Model Selection
-    model_options = ["gemini-2.5-pro","gemini-2.5-flash","gemini-2.5-flash-lite","gemini-2.0-flash","gemini-2.0-flash-lite"]
+    model_options = ["gemini-2.5-pro","gemini-2.5-flash"]
     st.sidebar.selectbox("Select Model", options=model_options, key="model")
 
     # Sidebar: Upload Document
