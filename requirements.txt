@@ -1,0 +1,29 @@
+# Core web frameworks
+fastapi
+uvicorn
+streamlit
+requests
+
+# LangChain ecosystem
+langchain
+langchain-core
+langchain-community
+langchain-google-genai
+langchain-huggingface
+langchain-chroma
+
+# Google Gemini
+google-generativeai
+google-ai-generativelanguage
+
+# Embeddings + vector store
+chromadb
+sentence-transformers
+
+# Document loaders
+docx2txt
+pypdf
+unstructured
+
+# Utils
+python-dotenv
