@@ -1,0 +1,39 @@
+# ----------------------
+# Project-specific ignores
+# ----------------------
+docs/                   # Don't upload your local document test files
+secrets.txt             # Any secret files you may have created
+.env                    # Environment variables (API keys)
+.env.local              # Local variant of env file
+
+# ----------------------
+# Python
+# ----------------------
+__pycache__/            # Python cache
+*.pyc
+*.pyo
+*.pyd
+
+# ----------------------
+# Databases
+# ----------------------
+*.sqlite
+*.db
+
+# ----------------------
+# Logs
+# ----------------------
+*.log
+
+# ----------------------
+# Jupyter
+# ----------------------
+.ipynb_checkpoints/     # Notebook checkpoints
+
+# ----------------------
+# OS / Editor files
+# ----------------------
+.DS_Store               # macOS
+Thumbs.db               # Windows
+.vscode/                # VSCode settings
+.idea/                  # JetBrains settings
