@@ -156,3 +156,20 @@ INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, AI Response: Based o
 The text does not state whether it is *the* most valuable company in the world, only that it is among the most valuable.
 INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, User Query: Which company's HQ is in NYC?, Model: gemini-2.5-pro
 INFO:root:Session ID: e15b58ad-e8e8-4b35-a04a-2be8545e749d, AI Response: Based on the provided text, both **JP Morgan Chase & Co.** and **The Goldman Sachs Group, Inc.** have their headquarters in New York City, New York.
+INFO:root:Session ID: None, User Query: JP Morgan summary, Model: gemini-2.5-pro
+INFO:root:Session ID: 47865e9d-50d8-411d-8872-06f142c7ce5d, AI Response: Based on the provided text, here is a summary of JP Morgan Chase & Co.:
+
+JPMorgan Chase & Co. is the world's fifth-largest bank by total assets and a prominent American financial institution headquartered in New York City. Led by Chairman and CEO Jamie Dimon, the company employs approximately 300,000 people globally and trades on the NYSE under the ticker JPM.
+
+**Business Segments:**
+The company operates through four main divisions:
+*   Consumer & Community Banking (CCB)
+*   Corporate & Investment Bank (CIB)
+*   Commercial Banking
+*   Asset & Wealth Management
+
+**Q2 2025 Financial Highlights:**
+*   **Net Income:** $15 billion
+*   **Q2 Revenue:** $69.944 billion (a 7.93% decline year-over-year)
+*   **Twelve-month Revenue (ending June 30, 2025):** $275.483 billion (a 3.62% increase year-over-year)
+*   **Book Value per Share:** $122.51 as of June 30, 2025

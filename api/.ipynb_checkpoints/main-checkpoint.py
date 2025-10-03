@@ -6,6 +6,17 @@ from chroma_utils import index_document_to_chroma, delete_doc_from_chroma
 import os
 import uuid
 import logging
+
+from fastapi.middleware.cors import CORSMiddleware
+# Allow all origins for simplicity (works). For production, set specific origins.
+@app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],            # or ["https://your-streamlit app.streamlit.app"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 logging.basicConfig(filename='app.log', level=logging.INFO)
 app = FastAPI()
 
@@ -78,3 +89,5 @@ def delete_document(request: DeleteFileRequest):
             return {"error": f"Deleted from Chroma but failed to delete document with file_id {request.file_id} from the database."}
     else:
         return {"error": f"Failed to delete document with file_id {request.file_id} from Chroma."}
+
+
