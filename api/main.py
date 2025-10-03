@@ -1,5 +1,6 @@
 import os
 import uuid
+import uvicorn
 import logging
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -91,7 +92,7 @@ def delete_document(request: DeleteFileRequest):
     else:
         return {"error": f"Failed to delete document {request.file_id}"}
 
-# Local dev
+
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("api.main:app", host="0.0.0.0", port=int(os.getenv("PORT", 8000)), reload=True)
+    port = int(os.getenv("PORT", 8000))  # fallback for local dev
+    uvicorn.run("api.main:app", host="0.0.0.0", port=port)
