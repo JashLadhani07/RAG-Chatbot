@@ -37,3 +37,4 @@ __pycache__/            # Python cache
 Thumbs.db               # Windows
 .vscode/                # VSCode settings
 .idea/                  # JetBrains settings
+.env
