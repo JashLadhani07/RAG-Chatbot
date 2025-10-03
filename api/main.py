@@ -6,28 +6,33 @@ from chroma_utils import index_document_to_chroma, delete_doc_from_chroma
 import os
 import uuid
 import logging
+import shutil
 
 from fastapi.middleware.cors import CORSMiddleware
-# Allow all origins for simplicity (works). For production, set specific origins.
+
+# Create FastAPI app first
+app = FastAPI()
+
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],            # or ["https://your-streamlit-app.streamlit.app"]
+    allow_origins=["*"],   # In production, set specific allowed origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
+# Logging setup
 logging.basicConfig(filename='app.log', level=logging.INFO)
-app = FastAPI()
+
 
 @app.post("/chat", response_model=QueryResponse)
 def chat(query_input: QueryInput):
     session_id = query_input.session_id
     logging.info(f"Session ID: {session_id}, User Query: {query_input.question}, Model: {query_input.model.value}")
+
     if not session_id:
         session_id = str(uuid.uuid4())
-
-    
 
     chat_history = get_chat_history(session_id)
     rag_chain = get_rag_chain(query_input.model.value)
@@ -40,9 +45,6 @@ def chat(query_input: QueryInput):
     logging.info(f"Session ID: {session_id}, AI Response: {answer}")
     return QueryResponse(answer=answer, session_id=session_id, model=query_input.model)
 
-from fastapi import UploadFile, File, HTTPException
-import os
-import shutil
 
 @app.post("/upload-doc")
 def upload_and_index_document(file: UploadFile = File(...)):
@@ -55,7 +57,6 @@ def upload_and_index_document(file: UploadFile = File(...)):
     temp_file_path = f"temp_{file.filename}"
     
     try:
-        # Save the uploaded file to a temporary file
         with open(temp_file_path, "wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
         
@@ -71,17 +72,17 @@ def upload_and_index_document(file: UploadFile = File(...)):
         if os.path.exists(temp_file_path):
             os.remove(temp_file_path)
 
+
 @app.get("/list-docs", response_model=list[DocumentInfo])
 def list_documents():
     return get_all_documents()
 
+
 @app.post("/delete-doc")
 def delete_document(request: DeleteFileRequest):
-    # Delete from Chroma
     chroma_delete_success = delete_doc_from_chroma(request.file_id)
 
     if chroma_delete_success:
-        # If successfully deleted from Chroma, delete from our database
         db_delete_success = delete_document_record(request.file_id)
         if db_delete_success:
             return {"message": f"Successfully deleted document with file_id {request.file_id} from the system."}
@@ -89,5 +90,3 @@ def delete_document(request: DeleteFileRequest):
             return {"error": f"Deleted from Chroma but failed to delete document with file_id {request.file_id} from the database."}
     else:
         return {"error": f"Failed to delete document with file_id {request.file_id} from Chroma."}
-
-
