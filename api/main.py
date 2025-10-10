@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 import os
 import uuid
 import uvicorn
@@ -36,20 +38,32 @@ def chat(query_input: QueryInput):
     session_id = query_input.session_id or str(uuid.uuid4())
     logging.info(f"Session: {session_id}, Question: {query_input.question}, Model: {query_input.model.value}")
 
-    # Get chat history
-    chat_history = get_chat_history(session_id)
+    try:
+        # Get chat history (from DB)
+        chat_history = get_chat_history(session_id)
 
-    # Lazy-load chain
-    rag_chain = get_rag_chain(query_input.model.value)
-    result = rag_chain.invoke({
-        "input": query_input.question,
-        "chat_history": chat_history
-    })
+        # Build/load the RAG chain lazily
+        rag_chain = get_rag_chain(query_input.model.value)
 
-    answer = result['answer']
-    insert_application_logs(session_id, query_input.question, answer, query_input.model.value)
-    logging.info(f"Session: {session_id}, Answer: {answer}")
-    return QueryResponse(answer=answer, session_id=session_id, model=query_input.model)
+        # Ask the chain
+        result = rag_chain.invoke({
+            "input": query_input.question,
+            "chat_history": chat_history
+        })
+
+        answer = result.get('answer') or result.get('output') or str(result)
+
+        # Save to DB
+        insert_application_logs(session_id, query_input.question, answer, query_input.model.value)
+        logging.info(f"Session: {session_id}, Answer: {answer}")
+
+        return QueryResponse(answer=answer, session_id=session_id, model=query_input.model)
+
+    except Exception as e:
+        logging.error("Exception in /chat: %s", e)
+        logging.error(traceback.format_exc())
+        # Don't leak internal info, but hint to logs
+        raise HTTPException(status_code=500, detail="Internal server error (check backend logs).")
 
 # Upload documents
 @app.post("/upload-doc")
@@ -94,5 +108,6 @@ def delete_document(request: DeleteFileRequest):
 
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8000))  # fallback for local dev
-    uvicorn.run("api.main:app", host="0.0.0.0", port=port)
+    # For local testing only
+    import uvicorn
+    uvicorn.run("api.main:app", host="0.0.0.0", port=int(os.getenv("PORT", 8000)))
